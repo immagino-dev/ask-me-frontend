@@ -1,7 +1,31 @@
-# Vue 3 + Vite
+<h1 align="center">ASK-ME</h1>
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<h3 align="center">
+  <img width="300" src="https://raw.githubusercontent.com/immagino-dev/ask-me-frontend/main/src/assets/logo.svg" />
+</h3>
 
-## Recommended IDE Setup
+# Configurações
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+Por [Higor Konig](https://github.com/higorkonig)
+
+## Clonando o Repositório
+
+Com o Git e o Node.js instalado na sua maquina e a **URL** do projeto em mãos, cria em algum lugar do seu pc uma pasta para criarmos uma copia do repositório, dentro dela abra o **cmd** ou **powershell** e digite os comandos abaixo:
+
+```
+git clone https://github.com/immagino-dev/ask-me-frontend
+cd aks-me-frontend
+yarn
+```
+
+## Iniciando projeto
+
+Dentro da pasta do projeto basta executar
+
+```
+yarn dev
+```
+
+### Importante 
+
+É necessário que o [backend](https://github.com/immagino-dev/ask-me-backend) estaja rodando localmente para que a aplicação funcione
