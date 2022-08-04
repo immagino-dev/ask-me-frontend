@@ -28,7 +28,7 @@
 					: router.push({ name: 'room.select' });
 			} else {
 				payload.error = 'Usuário ou senha inválidos';
-				setInterval(() => {
+				setTimeout(() => {
 					payload.error = '';
 				}, 5000);
 			}

@@ -5,7 +5,7 @@
 
 	import Button from '~/components/Button.vue';
 	import logo from '~/assets/logo.svg';
-	
+
 	const store = useStore();
 	const router = useRouter();
 
@@ -21,7 +21,7 @@
 			router.push({ name: 'room', params: { _room: room._id } });
 		} else {
 			payload.error = room.error;
-			setInterval(() => {
+			setTimeout(() => {
 				payload.error = '';
 			}, 6000);
 		}

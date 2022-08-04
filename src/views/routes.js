@@ -1,6 +1,14 @@
 
 export default [
   {
+    path: "/",
+    name: "",
+    meta: {
+      title: "",
+    },
+    redirect: '/room'
+  },
+  {
     path: "/signin",
     name: "signin",
     meta: {
@@ -15,14 +23,6 @@ export default [
       title: "criar conta",
     },
     component: () => import(/* webpackChunkName: "auth" */ './pages/CreateAccount.vue')
-  },
-  {
-    path: "/",
-    name: "",
-    meta: {
-      title: "",
-    },
-    redirect: '/room'
   },
   {
     path: '/room',

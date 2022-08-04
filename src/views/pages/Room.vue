@@ -76,7 +76,7 @@
 		state.value.room.questions.find((question, index) => {
 			if (room._id === question._id) {
 				let questionBefore = state.value.room.questions[index - 1];
-				if (questionBefore && room.likes.length > questionBefore.likes.length && !questionBefore.focus) {
+				if (questionBefore && room.likes.length > questionBefore.likes.length && !questionBefore.focused) {
 					state.value.room.questions[index - 1] = room;
 					state.value.room.questions[index] = questionBefore;
 				} else {
@@ -111,24 +111,28 @@
 
 	socket.on('closed', (room) => {
 		state.value.feedback = 'A sala foi fechada! redirecionando...';
-		setInterval(() => {
+		setTimeout(() => {
 			state.value.feedback = '';
 			router.push({ name: 'room.select' });
 		}, 3000);
 	});
 
 	onMounted(async () => {
+		console.log(route.params._room);
 		const room = await store.dispatch('GetRoom', { code: route.params._room });
 
 		if (!room.room.opened) {
+			console.log('1 redirecionando...');
 			router.push('/');
 		}
 
 		if (room.room.user == store.getters['getId']) {
+			console.log('2 redirecionando...');
 			router.push({ name: 'room.my-room', params: { _room: room.room._id } });
 		}
 
 		state.value.room = room.room;
+		console.log(state.value.room);
 	});
 </script>
 

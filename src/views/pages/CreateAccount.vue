@@ -29,7 +29,7 @@
 			router.push({ name: 'room.select' });
 		} else {
 			payload.value.error = createAccount.error;
-			setInterval(() => {
+			setTimeout(() => {
 				payload.value.error = '';
 			}, 5000);
 		}
