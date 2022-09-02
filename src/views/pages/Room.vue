@@ -87,7 +87,6 @@
 	});
 
 	socket.on('focus', (room) => {
-		console.log(room);
 		state.value.room.questions.find((question, index) => {
 			if (room._id === question._id) {
 				if (index === 0) {
@@ -118,21 +117,17 @@
 	});
 
 	onMounted(async () => {
-		console.log(route.params._room);
 		const room = await store.dispatch('GetRoom', { code: route.params._room });
 
 		if (!room.room.opened) {
-			console.log('1 redirecionando...');
 			router.push('/');
 		}
 
 		if (room.room.user == store.getters['getId']) {
-			console.log('2 redirecionando...');
 			router.push({ name: 'room.my-room', params: { _room: room.room._id } });
 		}
 
 		state.value.room = room.room;
-		console.log(state.value.room);
 	});
 </script>
 

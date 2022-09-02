@@ -4,7 +4,7 @@ export default {
   actions: {
     async EnterRoom(context, payload) {
       try {
-        const { status, data } = await api.get(`/room/${payload.code}`);
+        const { status, data } = await api.get(`/room/list/${payload.code}`);
         if (status != 200) return { ...data, enterRoom: false };
         return { ...data, enterRoom: true }
       } catch (error) {
