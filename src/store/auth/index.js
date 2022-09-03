@@ -52,7 +52,7 @@ export default {
           email: payload.email,
           password: payload.password
         });
-        if (status != 201) return { data, signup: false };
+        if (status != 201) return { ...data, signup: false };
 
         const user = {
           id: data.user._id,
@@ -61,7 +61,7 @@ export default {
         }
         context.commit('SINGIN_USER', user);
 
-        return { data, signup: true }
+        return { ...data, signup: true }
       } catch (error) {
         console.error(error);
       }
