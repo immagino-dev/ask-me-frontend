@@ -1,0 +1,41 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
+    - name: Deploy
+      env:
+          remote_host: ${{ secrets.HOST }}
+          remote_port: 22
+          remote_user: ${{ secrets.USER }}
+          remote_key: ${{ secrets.DEPLOY_CHAVE }}
+          api_dir: "dist/*"
+          remote_api_dir: "/var/www/askme/"
+      run: |
+          mkdir ~/.ssh
+          echo "$remote_key" > ~/.ssh/id_github
+          chmod 600 ~/.ssh/id_github
+          ls -la
+          rsync -avzr -e "ssh -p ${remote_port} -i ~/.ssh/id_github -o StrictHostKeyChecking=no" ${api_dir} ${remote_user}@${remote_host}:${remote_api_dir}
+          rm ~/.ssh/id_github
+          
