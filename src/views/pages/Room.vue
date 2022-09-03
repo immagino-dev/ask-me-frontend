@@ -145,7 +145,8 @@
 		<main>
 			<div className="room-title">
 				<h1>Sala - {{ state.room.title }}</h1>
-				<span v-if="state.room.questions.length > 0"> {{ state.room.questions.length }} perguntas</span>
+				<span v-if="state.room.questions.length == 1"> {{ state.room.questions.length }} pergunta</span>
+				<span v-else-if="state.room.questions.length > 1"> {{ state.room.questions.length }} perguntas</span>
 			</div>
 
 			<form @submit.prevent="onSubmit">
