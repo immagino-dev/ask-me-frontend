@@ -48,6 +48,7 @@
 			<div class="main-content">
 				<img :src="logo" alt="ask-me logo" />
 				<h3>Cadastro</h3>
+				<span class="error">{{ payload.error }}</span>
 				<form @submit.prevent="onSubmit()">
 					<input type="text" v-model="payload.name" placeholder="Nome" />
 					<input type="text" v-model="payload.email" placeholder="E-mail" />
