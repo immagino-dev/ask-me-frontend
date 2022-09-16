@@ -6,6 +6,9 @@
 
 # Configurações
 
+Experimente o site [clique aqui](https://askme.immagino.dev)
+
+
 Por [Higor Konig](https://github.com/higorkonig)
 
 ## Clonando o Repositório
